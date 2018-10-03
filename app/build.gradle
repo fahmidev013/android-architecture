@@ -1,0 +1,66 @@
+apply plugin: 'com.android.application'
+
+android {
+  def globalConfiguration = rootProject.extensions.getByName("ext")
+
+  compileSdkVersion globalConfiguration.getAt("androidCompileSdkVersion")
+  buildToolsVersion globalConfiguration.getAt("androidBuildToolVersion")
+
+  defaultConfig {
+    applicationId globalConfiguration.getAt("applicationId")
+    minSdkVersion globalConfiguration.getAt("androidMinSdkVersion")
+    targetSdkVersion globalConfiguration.getAt("androidTargetSdkVersion")
+    versionCode globalConfiguration.getAt("appVersionCode")
+    versionName globalConfiguration.getAt("appVersionName")
+    testInstrumentationRunner globalConfiguration.getAt("testInstrumentationRunner")
+  }
+
+  buildTypes {
+    debug {
+      debuggable true
+    }
+
+    release {
+      minifyEnabled false
+      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+    }
+  }
+
+  flavorDimensions "default"
+
+  productFlavors {
+    dev {
+      dimension "default"
+      applicationIdSuffix ".dev"
+      versionNameSuffix "-DEV"
+      buildConfigField("String", "GIT_HUB_BASE_URL", '"https://api.github.com/"')
+    }
+
+    prod {
+      dimension "default"
+      buildConfigField("String", "GIT_HUB_BASE_URL", '"https://api.github.com/"')
+    }
+  }
+}
+
+dependencies {
+  def libs = rootProject.ext.libraries
+
+  implementation libs.common
+  implementation libs.data
+  implementation libs.userList
+  implementation libs.mvp
+
+  implementation libs.supportAppCompat
+
+  implementation libs.okhttp
+  implementation libs.gson
+  implementation libs.dagger
+  annotationProcessor libs.daggerCompiler
+
+  testImplementation libs.junit
+
+  androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
+    exclude group: 'com.android.support', module: 'support-annotations'
+  })
+}
