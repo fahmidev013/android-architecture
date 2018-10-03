@@ -1,5 +1,5 @@
-# Android Multi Modules
-Learn how to split an Android app into multi modules
+# Android Architecture
+
 
 ## License
 
