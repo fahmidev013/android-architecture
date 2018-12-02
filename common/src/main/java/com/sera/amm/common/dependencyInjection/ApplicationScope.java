@@ -1,14 +1,15 @@
-package com.sera.amm.common.dagger;
+package com.sera.amm.common.dependencyInjection;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
+
 import javax.inject.Scope;
 
 /**
- * Created by Fahmi Hakim on 9/5/17.
+ * Created by Reynaldi on 12/5/2016.
  */
 
 @Scope
 @Retention(RetentionPolicy.RUNTIME)
-public @interface PerService {
+public @interface ApplicationScope {
 }

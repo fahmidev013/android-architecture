@@ -21,7 +21,9 @@ android {
     }
 
     release {
-      minifyEnabled false
+      minifyEnabled true
+      useProguard true
+      shrinkResources false
       proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
     }
   }
@@ -33,12 +35,12 @@ android {
       dimension "default"
       applicationIdSuffix ".dev"
       versionNameSuffix "-DEV"
-      buildConfigField("String", "GIT_HUB_BASE_URL", '"https://api.github.com/"')
+      buildConfigField("String", "BASE_URL", '"https://rallycoding.herokuapp.com/"')
     }
 
     prod {
       dimension "default"
-      buildConfigField("String", "GIT_HUB_BASE_URL", '"https://api.github.com/"')
+      buildConfigField("String", "BASE_URL", '"https://rallycoding.herokuapp.com/"')
     }
   }
 }
@@ -63,4 +65,5 @@ dependencies {
   androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
     exclude group: 'com.android.support', module: 'support-annotations'
   })
+  implementation project(path: ':services')
 }

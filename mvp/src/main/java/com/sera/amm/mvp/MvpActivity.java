@@ -1,26 +1,32 @@
 package com.sera.amm.mvp;
 
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.Toast;
+
+import com.sera.amm.common.base.BaseApp;
+import com.sera.amm.common.dependencyInjection.BaseActivityComponent;
+import com.sera.amm.common.dependencyInjection.BaseActivityModule;
 
 /**
  * Created by Fahmi Hakim on 9/5/17.
  */
 
-public abstract class MvpActivity extends AppCompatActivity implements ClientView{
+public abstract class MvpActivity extends AppCompatActivity  {
 
-    MvpPresenter presenter;
+    private BaseActivityComponent component;
 
-
-    public void get(String msg){
-        presenter = new MvpPresenter();
-        presenter.attachView(this);
-        presenter.showMsg(msg);
+    public BaseActivityComponent component() {
+        if (this.component == null) {
+            this.component = DaggerActivityComponent.builder()
+                    .appComponent(getApp().getDaggerComponent())
+                    .activityModule(new BaseActivityModule(this))
+                    .build();
+        }
+        return this.component;
     }
 
-
-    @Override
-    public void showData(String msg) {
-        Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
+    protected BaseApp getApp() {
+        return (BaseApp) getApplication();
     }
+
 }

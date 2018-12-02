@@ -4,7 +4,7 @@ package com.sera.amm.mvp;
  * Created by Fahmi Hakim on 9/5/17.
  */
 
-public abstract class BasePresenter<V extends MvpView> {
+public abstract class BasePresenter<V extends MvpViewToActivity> {
   private V view;
 
   public void attachView(V view) {

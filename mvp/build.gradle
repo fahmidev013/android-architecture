@@ -19,4 +19,5 @@ dependencies {
 
   implementation libs.supportAppCompat
   testImplementation libs.junit
+  implementation project(path: ':common')
 }

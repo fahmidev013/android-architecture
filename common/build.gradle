@@ -17,7 +17,6 @@ android {
 dependencies {
   def libs = rootProject.ext.libraries
 
-  implementation libs.resources
 
   implementation libs.supportAppCompat
 
@@ -25,4 +24,5 @@ dependencies {
   annotationProcessor libs.daggerCompiler
 
   testImplementation libs.junit
+
 }

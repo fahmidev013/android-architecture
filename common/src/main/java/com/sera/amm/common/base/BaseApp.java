@@ -3,19 +3,33 @@ package com.sera.amm.common.base;
 import android.app.Application;
 import android.content.Context;
 
+
+
 /**
  * Created by Fahmi Hakim on 9/6/17.
  */
 
-public abstract class BaseApp extends Application {
+public abstract class BaseApp<T, V> extends Application {
 
   private boolean running;
+//  private BaseAppComponent<T> component;
+//  private Scheduler defaultSubscribeScheduler;
 
-  public static BaseApp from(Context context) {
-    return ((BaseApp) context.getApplicationContext());
-  }
 
-  public abstract <T> T makeSubComponent(Object module);
+
+
+  /*public Scheduler getSubscribeScheduler() {
+    if (defaultSubscribeScheduler == null) {
+      defaultSubscribeScheduler = Schedulers.io();
+    }
+    return defaultSubscribeScheduler;
+  }*/
+
+  public abstract T getAppContext(Context context);
+
+  public abstract V getDaggerComponent();
+
+  /*public abstract <T> T makeSubComponent(Object module);
 
   public abstract void inject(Object target);
 
@@ -29,5 +43,5 @@ public abstract class BaseApp extends Application {
 
   public boolean isRunning() {
     return running;
-  }
+  }*/
 }

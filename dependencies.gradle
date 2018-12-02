@@ -21,16 +21,13 @@ ext {
   rxJavaAdapterVersion = '1.0.0'
   retrofitVersion = '2.3.0'
   okhttpVersion = '3.6.0'
-  frescoVersion = '1.1.0'
   firebaseVersion = '10.2.0'
   junitVersion = '4.12'
   realmVersion = '0.84.1'
-  noAdapterVersion = '2.0.0'
   jsoupVersion = '1.10.2'
   textDecoratorVersion = '1.0.0'
   playServicesVersion = '10.2.0'
   multidexVersion = '1.0.1'
-  javaPoetVersion = '1.9.0'
 
   // Testing
 
@@ -55,7 +52,6 @@ ext {
       rxJava: "io.reactivex.rxjava2:rxjava:${rxJavaVersion}",
       rxAndroid: "io.reactivex.rxjava2:rxandroid:${rxAndroidVersion}",
 
-      javaPoet: "com.squareup:javapoet:${javaPoetVersion}",
       dagger: "com.google.dagger:dagger:${daggerVersion}",
       daggerCompiler: "com.google.dagger:dagger-compiler:${daggerVersion}",
       daggerAndroid: "com.google.dagger:dagger-android:${daggerVersion}",
@@ -75,14 +71,11 @@ ext {
       firebaseMessaging: "com.google.firebase:firebase-messaging:${firebaseVersion}",
       firebaseAds: "com.google.firebase:firebase-ads:${firebaseVersion}",
 
-      fresco: "com.facebook.fresco:fresco:${frescoVersion}",
-
       leakCanaryDebug: "com.squareup.leakcanary:leakcanary-android:${leakCanaryVersion}",
       leakCanaryRelease: "com.squareup.leakcanary:leakcanary-android-no-op:${leakCanaryVersion}",
       leakCanaryTest: "com.squareup.leakcanary:leakcanary-android-no-op:${leakCanaryVersion}",
 
       realm: "io.realm:realm-android:${realmVersion}",
-      noAdapter: "vn.tiki.noadapter:noadapter:${noAdapterVersion}",
       textDecorator: "com.tuyenmonkey:text-decorator:${textDecoratorVersion}",
       multidex: "com.android.support:multidex:${multidexVersion}",
 
