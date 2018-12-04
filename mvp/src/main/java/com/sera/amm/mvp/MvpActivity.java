@@ -9,7 +9,7 @@ import android.widget.Toast;
  * Created by Fahmi Hakim on 9/5/17.
  */
 
-public abstract class MvpActivity extends AppCompatActivity implements ClientView{
+public abstract class MvpActivity extends BaseActivity implements ClientView{
 
     MvpPresenter presenter;
 

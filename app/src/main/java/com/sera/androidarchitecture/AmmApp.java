@@ -1,46 +1,29 @@
 package com.sera.androidarchitecture;
 
-import android.app.Application;
 import android.content.Context;
 
-import com.sera.androidarchitecture.di.component.AppComponent;
-
-import com.sera.androidarchitecture.di.component.DaggerAppComponent;
-import com.sera.androidarchitecture.di.module.AppModule;
+import com.sera.amm.common.base.BaseApp;
+import com.sera.amm.common.dagger.AppComponent;
 
 /**
  * Created by Fahmi Hakim on 9/5/17.
  */
 
-public class AmmApp extends Application {
-  private AppComponent appComponent;
+public class AmmApp extends BaseApp {
+
 
   @Override
   public void onCreate() {
     super.onCreate();
-    setupAppComponent();
-    appComponent.inject(this);
+    component(this).inject(this);
   }
 
-  private void setupAppComponent() {
-    appComponent = DaggerAppComponent.builder()
-        .appModule(new AppModule(this))
-        .build();
-  }
-
-  public static AmmApp getAppContext(Context context){
+  public static AmmApp getApp(Context context){
     return (AmmApp) context.getApplicationContext();
   }
 
-  public AppComponent getAppComponent() {
-    return appComponent;
+  public AppComponent getComponent(){
+      return super.component(this);
   }
 
-  /*@Override public <T> T makeSubComponent(Object module) {
-    return DaggerHelper.makeSubComponent(appComponent, module);
-  }
-
-  @Override public void inject(Object target) {
-    DaggerHelper.inject(this, target);
-  }*/
 }

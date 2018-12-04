@@ -1,5 +1,5 @@
 include ':app'
-include ':common'
+include ':di'
 include ':mvp'
 include ':data'
 include ':userlist'

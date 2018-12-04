@@ -38,7 +38,7 @@ ext {
   leakCanaryVersion = '1.5'
 
   libraries = [
-      common: project(':common'),
+      di: project(':di'),
       data: project(':data'),
       mvp: project(':mvp'),
       userList: project(':userlist'),

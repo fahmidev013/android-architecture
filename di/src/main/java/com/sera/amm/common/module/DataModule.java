@@ -1,15 +1,21 @@
-package com.sera.amm.data;
+package com.sera.amm.common.module;
+
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
+import com.sera.amm.common.dagger.ActivityScope;
+
+
+
+import java.util.concurrent.TimeUnit;
+
 import dagger.Module;
 import dagger.Provides;
-import java.util.concurrent.TimeUnit;
-import javax.inject.Singleton;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+
 
 /**
  * Created by Fahmi Hakim on 9/5/17.
@@ -24,13 +30,13 @@ public class DataModule {
   }
 
   @Provides
-  @Singleton
+  @ActivityScope
   Gson provideGson() {
     return new GsonBuilder().create();
   }
 
   @Provides
-  @Singleton
+  @ActivityScope
   OkHttpClient provideOkHttpClient() {
     return new OkHttpClient.Builder()
         .readTimeout(15, TimeUnit.SECONDS)
@@ -38,11 +44,7 @@ public class DataModule {
         .build();
   }
 
-  @Provides
-  @Singleton
-  LoginService provideGitHubService(Gson gson, OkHttpClient okHttpClient) {
-    return createRestService("", LoginService.class, gson, okHttpClient);
-  }
+
 
 
   private <T> T createRestService(String baseUrl, Class<T> serviceClass, Gson gson,
@@ -58,15 +60,15 @@ public class DataModule {
   }
 
   @Provides
-  @Singleton
-  Dummy provideDummy() {
-    return new Dummy("Sukses Inject Terusss");
+  @ActivityScope
+  DummyString provideDummyString() {
+    return new DummyString("Calling from DATAMODULE");
   }
 
-  public class Dummy {
+  public class DummyString {
 
     String msg;
-    public Dummy(String pesan) {
+    public DummyString(String pesan) {
       this.msg = pesan;
     }
 

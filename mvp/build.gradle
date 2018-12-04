@@ -18,5 +18,6 @@ dependencies {
   def libs = rootProject.ext.libraries
 
   implementation libs.supportAppCompat
+  implementation libs.di
   testImplementation libs.junit
 }
