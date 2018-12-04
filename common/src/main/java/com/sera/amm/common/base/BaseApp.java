@@ -15,9 +15,9 @@ public abstract class BaseApp extends Application {
     return ((BaseApp) context.getApplicationContext());
   }
 
-  public abstract <T> T makeSubComponent(Object module);
+  /*public abstract <T> T makeSubComponent(Object module);
 
-  public abstract void inject(Object target);
+  public abstract void inject(Object target);*/
 
   public void onStart() {
     running = true;

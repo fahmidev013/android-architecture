@@ -6,9 +6,18 @@ package com.sera.amm.mvp;
  */
 public class MvpPresenter extends BasePresenter<ClientView> {
 
+
+    MvpPresenter() {
+    }
+
     @Override
     public void attachView(ClientView view) {
         super.attachView(view);
+    }
+
+    @Override
+    public void detachView() {
+        super.detachView();
     }
 
     @Override

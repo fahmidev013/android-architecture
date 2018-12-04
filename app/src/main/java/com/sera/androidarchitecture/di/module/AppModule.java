@@ -2,8 +2,11 @@ package com.sera.androidarchitecture.di.module;
 
 import android.app.Application;
 import android.content.Context;
-import com.sera.amm.common.base.AppConfig;
-import com.sera.androidarchitecture.AppConfigImpl;
+
+import com.sera.androidarchitecture.AmmApp;
+import com.sera.androidarchitecture.di.component.ActivityScope;
+import com.sera.androidarchitecture.di.component.ApplicationScope;
+
 import dagger.Module;
 import dagger.Provides;
 import javax.inject.Singleton;
@@ -13,28 +16,46 @@ import javax.inject.Singleton;
  */
 
 @Module
-public class AppModule {
-  private Application application;
+public class AppModule  {
+  private AmmApp application;
 
-  public AppModule(Application application) {
+  public AppModule(AmmApp application) {
     this.application = application;
   }
 
   @Provides
-  @Singleton
-  Application provideApplication() {
+  @ApplicationScope
+  AmmApp provideApplication() {
     return application;
   }
 
   @Provides
-  @Singleton
+  @ApplicationScope
   Context provideApplicationContext() {
     return application;
   }
 
+
   @Provides
-  @Singleton
+  @ApplicationScope
+  String provideString() {
+    return "Inject berhasil dari Module Application";
+  }
+
+  public static class Dummy {
+
+    String msg;
+    public Dummy(String pesan) {
+      this.msg = pesan;
+    }
+
+    public String getMsg() {
+      return msg;
+    }
+  }
+  /*@Provides
+  @ApplicationScope
   AppConfig provideAppConfig() {
     return new AppConfigImpl();
-  }
+  }*/
 }

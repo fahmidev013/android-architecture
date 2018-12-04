@@ -9,6 +9,6 @@ import retrofit2.http.GET;
  * Created by Fahmi Hakim on 9/5/17.
  */
 
-public interface GitHubService {
+public interface LoginService {
   @GET("users") Single<List<UserResponse>> getUsers();
 }

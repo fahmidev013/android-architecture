@@ -40,9 +40,10 @@ public class DataModule {
 
   @Provides
   @Singleton
-  GitHubService provideGitHubService(Gson gson, OkHttpClient okHttpClient) {
-    return createRestService("", GitHubService.class, gson, okHttpClient);
+  LoginService provideGitHubService(Gson gson, OkHttpClient okHttpClient) {
+    return createRestService("", LoginService.class, gson, okHttpClient);
   }
+
 
   private <T> T createRestService(String baseUrl, Class<T> serviceClass, Gson gson,
       OkHttpClient okHttpClient) {
@@ -55,4 +56,23 @@ public class DataModule {
 
     return retrofit.create(serviceClass);
   }
+
+  @Provides
+  @Singleton
+  Dummy provideDummy() {
+    return new Dummy("Sukses Inject Terusss");
+  }
+
+  public class Dummy {
+
+    String msg;
+    public Dummy(String pesan) {
+      this.msg = pesan;
+    }
+
+    public String getMsg() {
+      return msg;
+    }
+  }
+
 }

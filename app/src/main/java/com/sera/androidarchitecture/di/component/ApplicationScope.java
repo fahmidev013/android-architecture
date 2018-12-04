@@ -1,7 +1,8 @@
-package com.sera.amm.common.dagger;
+package com.sera.androidarchitecture.di.component;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
+
 import javax.inject.Scope;
 
 /**
@@ -10,5 +11,5 @@ import javax.inject.Scope;
 
 @Scope
 @Retention(RetentionPolicy.RUNTIME)
-public @interface PerActivity {
+public @interface ApplicationScope {
 }

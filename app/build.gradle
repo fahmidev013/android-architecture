@@ -46,8 +46,8 @@ android {
 dependencies {
   def libs = rootProject.ext.libraries
 
-  implementation libs.common
-  implementation libs.data
+
+
   implementation libs.userList
   implementation libs.mvp
 
