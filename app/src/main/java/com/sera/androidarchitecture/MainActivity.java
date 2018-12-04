@@ -15,13 +15,9 @@ import com.sera.androidarchitecture.di.DaggerActivityComponent;
 
 import javax.inject.Inject;
 
-public class MainActivity extends BaseActivity{
+public class MainActivity extends BaseActivity implements MainView{
 
-  /*@Inject
-  AppModule.Dummy data;
 
-  @Inject
-  DataModule.DummyString data3;*/
 
   @Inject
   String data2;
@@ -32,13 +28,14 @@ public class MainActivity extends BaseActivity{
   @Inject
   UserService userService;
 
+  MainPresenter presenter;
 
 
   @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
-    Toast.makeText(this, userService.getMsg(), Toast.LENGTH_LONG).show();
-    //super.get(data.getMsg() + "  " + data2 + "  " + data3);
+    presenter = new MainPresenter(this);
+    presenter.loadMessage( userService.getMsg());
   }
 
   @Override
@@ -51,4 +48,10 @@ public class MainActivity extends BaseActivity{
     componentChild.inject(this);
   }
 
+
+
+  @Override
+  public void showToast(String msg) {
+    Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
+  }
 }
