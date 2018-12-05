@@ -5,7 +5,8 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import com.sera.amm.common.dagger.ActivityScope;
-
+import com.sera.amm.data.GithubService;
+import com.sera.amm.userlist.UserService;
 
 
 import java.util.concurrent.TimeUnit;
@@ -44,6 +45,12 @@ public class DataModule {
         .build();
   }
 
+
+  @Provides
+  @ActivityScope
+  GithubService provideGithubService(Gson gson, OkHttpClient okHttpClient) {
+    return createRestService("", GithubService.class, gson, okHttpClient);
+  }
 
 
 

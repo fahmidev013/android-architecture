@@ -1,8 +1,10 @@
 package com.sera.amm.mvp;
 
+import android.app.Application;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import com.sera.amm.common.dagger.AppComponent;
 import com.sera.amm.common.module.ActivityModule;
 import com.sera.amm.common.module.DataModule;
 
@@ -31,6 +33,9 @@ public abstract class BaseActivity extends AppCompatActivity {
     }*/
 
     protected abstract void initDagger();
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

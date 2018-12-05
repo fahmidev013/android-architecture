@@ -3,19 +3,15 @@ package com.sera.androidarchitecture;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import com.sera.amm.common.module.ActivityModule;
-import com.sera.amm.common.module.AppModule;
 import com.sera.amm.common.module.DataModule;
-import com.sera.amm.mvp.BaseActivity;
 
 import com.sera.amm.userlist.UserService;
-import com.sera.androidarchitecture.di.ActivityComponent;
-import com.sera.androidarchitecture.di.DaggerActivityComponent;
+import com.sera.androidarchitecture.base.CoreActivity;
 
 
 import javax.inject.Inject;
 
-public class MainActivity extends BaseActivity implements MainView{
+public class MainActivity extends CoreActivity implements MainView{
 
 
 
@@ -33,22 +29,10 @@ public class MainActivity extends BaseActivity implements MainView{
 
   @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
+    createActivityComponent(this).inject(this);
     setContentView(R.layout.activity_main);
-    presenter = new MainPresenter(this);
-    presenter.loadMessage( userService.getMsg());
+    presenter = new MainPresenter(this, userService);
   }
-
-  @Override
-  protected void initDagger() {
-    ActivityComponent componentChild = DaggerActivityComponent.builder()
-            .appComponent(AmmApp.getApp(this).getComponent())
-            .activityModule(new ActivityModule(this))
-            .dataModule(new DataModule(false))
-            .build();
-    componentChild.inject(this);
-  }
-
-
 
   @Override
   public void showToast(String msg) {
