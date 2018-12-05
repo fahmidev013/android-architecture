@@ -6,8 +6,8 @@ import com.sera.amm.common.dagger.ActivityScope;
 import com.sera.amm.common.dagger.AppComponent;
 import com.sera.amm.common.module.ActivityModule;
 import com.sera.amm.common.module.DataModule;
-import com.sera.androidarchitecture.MainActivity;
-import com.sera.androidarchitecture.base.CoreActivity;
+import com.sera.androidarchitecture.pages.MainActivity;
+import com.sera.androidarchitecture.pages.home.HomeActivity;
 
 import dagger.Component;
 
@@ -21,7 +21,7 @@ import dagger.Component;
 public interface ActivityComponent {
 
 
-
+    void inject(HomeActivity activity);
     void inject(MainActivity activity);
     void inject(Activity activity);
 //    void inject(CoreActivity activity);

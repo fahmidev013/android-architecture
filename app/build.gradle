@@ -6,6 +6,7 @@ android {
   compileSdkVersion globalConfiguration.getAt("androidCompileSdkVersion")
   buildToolsVersion globalConfiguration.getAt("androidBuildToolVersion")
 
+  dataBinding.enabled = true
   defaultConfig {
     applicationId globalConfiguration.getAt("applicationId")
     minSdkVersion globalConfiguration.getAt("androidMinSdkVersion")
@@ -24,6 +25,11 @@ android {
       minifyEnabled false
       proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
     }
+  }
+
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
   }
 
   flavorDimensions "default"
@@ -52,6 +58,13 @@ dependencies {
   implementation libs.userList
 
   implementation libs.supportAppCompat
+
+  implementation libs.retrofit
+  implementation libs.retrofitGsonConverter
+  implementation libs.rxJavaAdapter
+
+  implementation libs.rxJava
+  implementation libs.rxAndroid
 
   implementation libs.okhttp
   implementation libs.gson

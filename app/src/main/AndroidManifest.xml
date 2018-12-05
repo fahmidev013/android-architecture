@@ -3,6 +3,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.sera.androidarchitecture"
 >
+  <uses-permission android:name="android.permission.INTERNET"/>
+  <uses-permission-sdk-23 android:name="android.permission.INTERNET"/>
+
 
   <application
       android:name=".AmmApp"
@@ -13,11 +16,18 @@
       android:theme="@style/AppTheme"
   >
 
-    <activity android:name=".MainActivity">
+    <activity android:name=".pages.MainActivity">
       <intent-filter>
         <action android:name="android.intent.action.MAIN"/>
         <category android:name="android.intent.category.LAUNCHER"/>
       </intent-filter>
+    </activity>
+
+    <activity android:name=".pages.home.HomeActivity">
+      <!--<intent-filter>
+        <action android:name="android.intent.action.MAIN"/>
+        <category android:name="android.intent.category.LAUNCHER"/>
+      </intent-filter>-->
     </activity>
 
   </application>

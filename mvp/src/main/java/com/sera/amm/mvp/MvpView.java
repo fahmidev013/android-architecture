@@ -5,5 +5,6 @@ package com.sera.amm.mvp;
  */
 
 public interface MvpView {
-
+    void showLoading(boolean isShow);
+    void showToast(String msg);
 }

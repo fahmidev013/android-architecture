@@ -3,7 +3,6 @@ package com.sera.amm.common.module;
 import android.app.Activity;
 
 import com.sera.amm.common.dagger.ActivityScope;
-import com.sera.amm.userlist.UserService;
 
 import dagger.Module;
 import dagger.Provides;
@@ -33,10 +32,5 @@ public class ActivityModule {
         return "Inject berhasil dari Module Common Activity";
     }
 
-    @Provides
-    @ActivityScope
-    UserService provideUserService() {
-        return new UserService(activity, "User service inject");
-    }
 
 }
