@@ -13,29 +13,45 @@ import javax.inject.Inject;
  * Created by Fahmi Hakim on 05/12/2018.
  * for SERA
  */
-public class HomeActivity extends CoreActivity<HomePresenter> implements HomeView{
+public class HomeActivity extends CoreActivity<HomePresenter, HomeView> implements HomeView{
 
-    @Inject
-    RallyService rallyService;
+    /*@Inject
+    RallyService rallyService;*/
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        createActivityComponent(this).inject(this);
+
         setContentView(R.layout.activity_main);
-        createPresenter(new HomePresenter(this, rallyService));
-        getPresenter().setUserMsg("Berubah");
+        /*createPresenter(new HomePresenter(this, rallyService));
+        getPresenter().setUserMsg("Berubah");*/
     }
 
     @Override
-    public void showLoading(boolean isShow) {
-        showProgressDialog(isShow);
+    protected void initInject() {
+        createActivityComponent(this).inject(this);
     }
 
     @Override
-    public void showToast(String msg) {
-        showMessage(msg);
+    public int getLayoutResId() {
+        return R.layout.activity_main;
     }
+
+    @Override
+    protected void initEvent() {
+
+    }
+
+    @Override
+    protected void initView() {
+
+    }
+
+    @Override
+    protected void initData() {
+
+    }
+
 
     @Override
     public void finishActivity() {

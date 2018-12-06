@@ -31,8 +31,8 @@ public class RallyService {
 
     public Observable<List<RallyResponModel>> getDataRally() {
         return mRallyAPI.getData()
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribeOn(Schedulers.io());
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
     }
 
     public String getMsg(){

@@ -3,4 +3,4 @@ include ':di'
 include ':mvp'
 include ':data'
 include ':userlist'
-include ':resources'
+

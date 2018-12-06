@@ -3,6 +3,8 @@ package com.sera.androidarchitecture.pages.home;
 import com.sera.amm.mvp.BasePresenter;
 import com.sera.amm.userlist.RallyService;
 
+import javax.inject.Inject;
+
 /**
  * Created by Fahmi Hakim on 05/12/2018.
  * for SERA
@@ -10,13 +12,13 @@ import com.sera.amm.userlist.RallyService;
 public class HomePresenter extends BasePresenter<HomeView> {
 
 
-    HomeView mView;
     RallyService rallyService;
 
-    HomePresenter(HomeView mView, RallyService service) {
-        this.mView = mView;
+    @Inject
+    HomePresenter(RallyService service) {
+
         this.rallyService = service;
-        mView.showLoading(true);
+//        mView.showLoading(true);
 
     }
 
@@ -26,7 +28,7 @@ public class HomePresenter extends BasePresenter<HomeView> {
         return null;
     }
 
-    public void setUserMsg(String berubah) {
+    /*public void setUserMsg(String berubah) {
         new android.os.Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -38,5 +40,5 @@ public class HomePresenter extends BasePresenter<HomeView> {
         }, 5000);
 
 
-    }
+    }*/
 }

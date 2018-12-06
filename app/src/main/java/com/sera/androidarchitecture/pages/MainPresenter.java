@@ -1,5 +1,6 @@
 package com.sera.androidarchitecture.pages;
 
+import android.app.Activity;
 import android.os.Handler;
 
 import com.sera.amm.data.response.RallyResponModel;
@@ -7,6 +8,8 @@ import com.sera.amm.mvp.BasePresenter;
 import com.sera.amm.userlist.RallyService;
 
 import java.util.List;
+
+import javax.inject.Inject;
 
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
@@ -17,56 +20,46 @@ import io.reactivex.disposables.Disposable;
  */
 public class MainPresenter extends BasePresenter<MainView>{
 
-    private MainView mView;
     private RallyService service;
 
-
-
-    public MainPresenter(MainView view, RallyService rallyService) {
-        this.mView = view;
+    @Inject
+    public MainPresenter(RallyService rallyService) {
         this.service = rallyService;
-        mView.showLoading(true);
+    }
+
+
+    protected void loadMessage(){
+        getView().showLoading(true);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                loadMessage();
+                service.getDataRally()
+                        .subscribe(new Observer<List<RallyResponModel>>() {
+                            @Override
+                            public void onSubscribe(Disposable d) {
+
+                            }
+
+                            @Override
+                            public void onNext(List<RallyResponModel> rallyResponModels) {
+                                if (rallyResponModels.size() != 0) getView().sendData(rallyResponModels);
+                                getView().showLoading(false);
+                            }
+
+                            @Override
+                            public void onError(Throwable e) {
+                                getView().showLoading(false);
+                            }
+
+                            @Override
+                            public void onComplete() {
+                                getView().showLoading(false);
+                            }
+                        });
             }
         }, 5000);
 
     }
-
-    protected void loadMessage(){
-
-        service.getDataRally()
-                .subscribe(new Observer<List<RallyResponModel>>() {
-                    @Override
-                    public void onSubscribe(Disposable d) {
-
-                    }
-
-                    @Override
-                    public void onNext(List<RallyResponModel> rallyResponModels) {
-                        if (rallyResponModels.size() != 0) mView.sendData(rallyResponModels);
-                        mView.showLoading(false);
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        mView.showLoading(false);
-                    }
-
-                    @Override
-                    public void onComplete() {
-                        mView.showLoading(false);
-                    }
-                });
-    }
-
-    @Override
-    public void detachView() {
-        super.detachView();
-    }
-
 
 
     @Override
