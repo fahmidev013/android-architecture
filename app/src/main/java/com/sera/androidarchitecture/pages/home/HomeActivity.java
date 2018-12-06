@@ -1,13 +1,12 @@
 package com.sera.androidarchitecture.pages.home;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 
-import com.sera.amm.userlist.RallyService;
+
 import com.sera.androidarchitecture.R;
 import com.sera.androidarchitecture.base.CoreActivity;
 
-import javax.inject.Inject;
+import androidx.annotation.Nullable;
 
 /**
  * Created by Fahmi Hakim on 05/12/2018.
@@ -34,7 +33,7 @@ public class HomeActivity extends CoreActivity<HomePresenter, HomeView> implemen
 
     @Override
     public int getLayoutResId() {
-        return R.layout.activity_main;
+        return R.layout.activity_home;
     }
 
     @Override

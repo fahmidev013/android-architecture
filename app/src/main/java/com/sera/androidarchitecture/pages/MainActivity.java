@@ -1,17 +1,17 @@
 package com.sera.androidarchitecture.pages;
 
+import android.app.Activity;
 import android.content.Intent;
-import android.os.Bundle;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.widget.Toolbar;
-import android.view.LayoutInflater;
 
-import com.sera.amm.common.module.DataModule;
+
+import android.os.Bundle;
+
 
 import com.sera.amm.data.response.RallyResponModel;
-import com.sera.amm.userlist.RallyService;
 import com.sera.androidarchitecture.R;
 import com.sera.androidarchitecture.base.CoreActivity;
+import com.sera.androidarchitecture.databinding.ActivityMainBinding;
+import com.sera.androidarchitecture.model.RallyModel;
 import com.sera.androidarchitecture.pages.home.HomeActivity;
 
 
@@ -20,6 +20,9 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import androidx.databinding.DataBindingUtil;
+
+
 public class MainActivity extends CoreActivity<MainPresenter, MainView> implements MainView{
 
 
@@ -27,8 +30,15 @@ public class MainActivity extends CoreActivity<MainPresenter, MainView> implemen
   MainPresenter presenter;
 
 
+
+//  private ActivityMainBinding binding;
+  private RallyModel rallyResponModel = new RallyModel("Awallllllllllll");
+
+
   @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
+      ActivityMainBinding binding = DataBindingUtil.setContentView( this, R.layout.activity_main);
+      binding.setRally(rallyResponModel);
   }
 
   @Override
@@ -82,6 +92,6 @@ public class MainActivity extends CoreActivity<MainPresenter, MainView> implemen
     for (int i =0 ; i< data.size(); i++) {
       j.add(data.get(i).getTitle());
     }
-    showToast(j.toString());
+    rallyResponModel.setTitle(j.get(j.size() - 1));
   }
 }

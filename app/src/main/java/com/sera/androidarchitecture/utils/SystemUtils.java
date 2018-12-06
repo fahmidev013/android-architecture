@@ -26,7 +26,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.Settings;
-import android.support.v4.app.ActivityCompat;
+
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
@@ -39,6 +39,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
+
+import androidx.core.app.ActivityCompat;
 
 /**
  * Created by Fahmi Hakim on 06/12/2018.

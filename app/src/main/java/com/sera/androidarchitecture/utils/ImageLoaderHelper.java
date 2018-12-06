@@ -1,10 +1,5 @@
 package com.sera.androidarchitecture.utils;
 
-import android.content.Context;
-import android.widget.ImageView;
-
-import org.jetbrains.annotations.NotNull;
-
 /**
  * Created by Fahmi Hakim on 06/12/2018.
  * for SERA

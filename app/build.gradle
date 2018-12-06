@@ -7,7 +7,8 @@ android {
   buildToolsVersion globalConfiguration.getAt("androidBuildToolVersion")
 
   dataBinding.enabled = true
-  defaultConfig {
+
+    defaultConfig {
     applicationId globalConfiguration.getAt("applicationId")
     minSdkVersion globalConfiguration.getAt("androidMinSdkVersion")
     targetSdkVersion globalConfiguration.getAt("androidTargetSdkVersion")
@@ -52,29 +53,38 @@ android {
 dependencies {
   def libs = rootProject.ext.libraries
 
-  implementation libs.di
-  implementation libs.data
-  implementation libs.mvp
-  implementation libs.userList
+    implementation libs.supportAppCompat
+    implementation libs.dagger
+    annotationProcessor libs.daggerCompiler
+    implementation libs.retrofit
+    implementation libs.retrofitGsonConverter
+    implementation libs.rxJavaAdapter
 
-  implementation libs.supportAppCompat
+    implementation libs.rxJava
+    implementation libs.rxAndroid
 
-  implementation libs.retrofit
-  implementation libs.retrofitGsonConverter
-  implementation libs.rxJavaAdapter
+    implementation libs.okhttp
+    implementation libs.gson
 
-  implementation libs.rxJava
-  implementation libs.rxAndroid
+    implementation libs.di
+    implementation libs.mvp
+    implementation libs.data
+    implementation libs.userList
 
-  implementation libs.okhttp
-  implementation libs.gson
-  implementation libs.dagger
-  annotationProcessor libs.daggerCompiler
-
-  testImplementation libs.junit
-
-  androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
-    exclude group: 'com.android.support', module: 'support-annotations'
-  })
     implementation 'org.jetbrains:annotations:15.0'
+
+
+
+    testImplementation libs.junit
+
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
+      exclude group: 'com.android.support', module: 'support-annotations'
+  })
+}
+
+
+gradle.projectsEvaluated {
+    tasks.withType(JavaCompile.class) {
+        options.compilerArgs << "-Xmaxerrs" << "10000"
+    }
 }

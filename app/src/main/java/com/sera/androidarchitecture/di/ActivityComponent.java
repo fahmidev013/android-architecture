@@ -6,7 +6,7 @@ import com.sera.amm.common.dagger.ActivityScope;
 import com.sera.amm.common.dagger.AppComponent;
 import com.sera.amm.common.module.ActivityModule;
 import com.sera.amm.common.module.DataModule;
-import com.sera.androidarchitecture.base.CoreActivity;
+
 import com.sera.androidarchitecture.pages.MainActivity;
 import com.sera.androidarchitecture.pages.home.HomeActivity;
 

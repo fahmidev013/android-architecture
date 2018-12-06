@@ -4,9 +4,7 @@ import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+
 import android.text.TextUtils;
 import android.widget.Toast;
 
@@ -17,11 +15,13 @@ import com.sera.amm.mvp.MvpView;
 import com.sera.androidarchitecture.AmmApp;
 import com.sera.androidarchitecture.di.ActivityComponent;
 
+
 import com.sera.androidarchitecture.di.DaggerActivityComponent;
-import com.sera.androidarchitecture.pages.MainView;
 import com.sera.androidarchitecture.utils.SystemUtils;
 
-import javax.inject.Inject;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 
 /**
@@ -70,11 +70,11 @@ public abstract class CoreActivity<T extends BasePresenter, V extends MvpView> e
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(getLayoutResId());
+        //setContentView(getLayoutResId());
 //        EventBus.getDefault().register(this);
-        setStatusBar();
+        /*setStatusBar();
         getIntentData();
-        OtherSetting();
+        OtherSetting();*/
     }
 
     @Override

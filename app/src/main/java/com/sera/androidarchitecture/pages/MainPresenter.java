@@ -1,6 +1,5 @@
 package com.sera.androidarchitecture.pages;
 
-import android.app.Activity;
 import android.os.Handler;
 
 import com.sera.amm.data.response.RallyResponModel;

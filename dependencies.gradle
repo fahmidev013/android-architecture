@@ -5,15 +5,15 @@ ext {
   appVersionCode = 1
 
   // Android
-  androidBuildToolVersion = "26.0.2"
+  androidBuildToolVersion = "28.0.3"
   androidMinSdkVersion = 14
-  androidTargetSdkVersion = 26
-  androidCompileSdkVersion = 26
+  androidTargetSdkVersion = 28
+  androidCompileSdkVersion = 28
   testInstrumentationRunner = "android.support.test.runner.AndroidJUnitRunner"
 
   // Libraries version
-  supportLibraryVersion = '26.0.2'
-  daggerVersion = '2.8'
+  supportLibraryVersion = '28.0.0'
+  daggerVersion = '2.19'
   butterKnifeVersion = '8.5.1'
   rxJavaVersion = '2.1.3'
   rxAndroidVersion = '2.0.1'

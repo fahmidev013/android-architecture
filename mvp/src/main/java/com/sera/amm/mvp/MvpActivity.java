@@ -1,9 +1,10 @@
 package com.sera.amm.mvp;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
+
 import android.widget.Toast;
+
+import androidx.annotation.Nullable;
 
 /**
  * Created by Fahmi Hakim on 9/5/17.
