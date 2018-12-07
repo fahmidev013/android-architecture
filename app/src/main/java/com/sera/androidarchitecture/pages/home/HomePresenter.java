@@ -1,6 +1,6 @@
 package com.sera.androidarchitecture.pages.home;
 
-import com.sera.amm.data.rallyService.RallyService;
+import com.sera.amm.services.rallyService.RallyService;
 import com.sera.amm.mvp.BasePresenter;
 
 import javax.inject.Inject;

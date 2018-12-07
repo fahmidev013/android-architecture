@@ -7,9 +7,11 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import com.sera.amm.common.dagger.ActivityScope;
-import com.sera.amm.data.githubService.GithubService;
-import com.sera.amm.data.rallyService.RallyAPI;
-import com.sera.amm.data.rallyService.RallyService;
+import com.sera.amm.services.beliNPLService.BeliNplAPI;
+import com.sera.amm.services.beliNPLService.BeliNplService;
+import com.sera.amm.services.githubService.GithubService;
+import com.sera.amm.services.rallyService.RallyAPI;
+import com.sera.amm.services.rallyService.RallyService;
 
 
 import java.util.concurrent.TimeUnit;
@@ -69,6 +71,19 @@ public class DataModule {
     RallyService provideUserService(RallyAPI rallyAPI) {
         return new RallyService(mActivity, "User service inject", rallyAPI);
     }
+
+  @Provides
+  @ActivityScope
+  BeliNplAPI provideBeliNplService(Gson gson, OkHttpClient okHttpClient) {
+    return createRestService("https://rallycoding.herokuapp.com", BeliNplAPI.class, gson, okHttpClient);
+  }
+
+
+  @Provides
+  @ActivityScope
+  BeliNplService provideBeliNplService(BeliNplAPI beliNplAPI) {
+    return new BeliNplService(mActivity, "User service inject", beliNplAPI);
+  }
 
   private <T> T createRestService(String baseUrl, Class<T> serviceClass, Gson gson,
       OkHttpClient okHttpClient) {

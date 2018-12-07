@@ -1,4 +1,4 @@
-package com.sera.amm.data.rallyService;
+package com.sera.amm.services.rallyService;
 
 import android.app.Activity;
 

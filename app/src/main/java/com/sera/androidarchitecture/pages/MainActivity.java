@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 
-import com.sera.amm.data.rallyService.RallyResponModel;
+import com.sera.amm.services.rallyService.RallyResponModel;
 import com.sera.androidarchitecture.R;
 import com.sera.androidarchitecture.base.CoreActivity;
 import com.sera.androidarchitecture.databinding.ActivityMainBinding;

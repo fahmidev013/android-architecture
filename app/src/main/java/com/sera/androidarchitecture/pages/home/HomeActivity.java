@@ -3,7 +3,7 @@ package com.sera.androidarchitecture.pages.home;
 import android.os.Bundle;
 
 
-import com.sera.amm.data.rallyService.RallyService;
+import com.sera.amm.services.rallyService.RallyService;
 import com.sera.androidarchitecture.R;
 import com.sera.androidarchitecture.base.CoreActivity;
 

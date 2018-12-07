@@ -1,4 +1,4 @@
-package com.sera.amm.data;
+package com.sera.amm.services;
 
 import org.junit.Test;
 

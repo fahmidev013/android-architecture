@@ -3,6 +3,7 @@ package com.sera.amm.common.module;
 import android.app.Application;
 
 import com.sera.amm.common.dagger.ApplicationScope;
+import com.sera.amm.services.authInfoService.AuthInfo;
 
 import dagger.Module;
 import dagger.Provides;
@@ -24,6 +25,11 @@ public class AppModule {
     @Provides @ApplicationScope
     public Application provideApp() {
         return this.app;
+    }
+
+    @Provides @ApplicationScope
+    public AuthInfo provideAuthInfo() {
+        return new AuthInfo(app);
     }
 
 

@@ -1,6 +1,6 @@
 package com.sera.androidarchitecture.pages;
 
-import com.sera.amm.data.rallyService.RallyResponModel;
+import com.sera.amm.services.rallyService.RallyResponModel;
 import com.sera.amm.mvp.MvpView;
 
 import java.util.List;

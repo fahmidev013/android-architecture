@@ -10,7 +10,7 @@
 
     <variable
         name="rally"
-        type="com.sera.amm.data.rallyService.RallyResponModel" />
+        type="com.sera.amm.services.rallyService.RallyResponModel" />
   </data>
 
 

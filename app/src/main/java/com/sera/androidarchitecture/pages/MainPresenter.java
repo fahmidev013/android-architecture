@@ -1,11 +1,10 @@
 package com.sera.androidarchitecture.pages;
 
-import android.app.Activity;
-import android.content.Context;
 import android.os.Handler;
 
-import com.sera.amm.data.rallyService.RallyService;
-import com.sera.amm.data.rallyService.RallyResponModel;
+import com.sera.amm.services.beliNPLService.BeliNplService;
+import com.sera.amm.services.rallyService.RallyService;
+import com.sera.amm.services.rallyService.RallyResponModel;
 import com.sera.amm.mvp.BasePresenter;
 import com.sera.androidarchitecture.R;
 
@@ -22,11 +21,13 @@ import io.reactivex.disposables.Disposable;
  */
 public class MainPresenter extends BasePresenter<MainView>{
 
-    private RallyService service;
+    private RallyService serviceRally;
+    private BeliNplService serviceBeliNpl;
 
     @Inject
-    public MainPresenter(RallyService rallyService) {
-        this.service = rallyService;
+    public MainPresenter(RallyService rallyService, BeliNplService beliNplService) {
+        this.serviceRally = rallyService;
+        this.serviceBeliNpl = beliNplService;
     }
 
 
@@ -35,7 +36,7 @@ public class MainPresenter extends BasePresenter<MainView>{
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                service.getDataRally()
+                serviceRally.getDataRally()
                         .subscribe(new Observer<List<RallyResponModel>>() {
                             @Override
                             public void onSubscribe(Disposable d) {

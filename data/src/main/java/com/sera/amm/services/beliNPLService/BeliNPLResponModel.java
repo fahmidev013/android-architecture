@@ -1,4 +1,4 @@
-package com.sera.amm.data.rallyService;
+package com.sera.amm.services.beliNPLService;
 
 
 import android.os.Parcel;
@@ -14,28 +14,28 @@ import androidx.databinding.library.baseAdapters.BR;
  * Created by Fahmi Hakim on 05/12/2018.
  * for SERA
  */
-public class RallyResponModel extends BaseObservable implements Parcelable{
+public class BeliNPLResponModel extends BaseObservable implements Parcelable{
     @SerializedName("title") private String title;
     @SerializedName("artist") private String artist;
 
 
-    public RallyResponModel(String title) {
+    public BeliNPLResponModel(String title) {
         this.title = title;
         this.artist = "taior";
     }
 
-    public RallyResponModel(Parcel in) {
+    public BeliNPLResponModel(Parcel in) {
         this.title = in.readString();
         this.artist = in.readString();
     }
 
-    public static final Creator<RallyResponModel> CREATOR = new Creator<RallyResponModel>() {
-        @Override public RallyResponModel createFromParcel(Parcel in) {
-            return new RallyResponModel(in);
+    public static final Creator<BeliNPLResponModel> CREATOR = new Creator<BeliNPLResponModel>() {
+        @Override public BeliNPLResponModel createFromParcel(Parcel in) {
+            return new BeliNPLResponModel(in);
         }
 
-        @Override public RallyResponModel[] newArray(int size) {
-            return new RallyResponModel[size];
+        @Override public BeliNPLResponModel[] newArray(int size) {
+            return new BeliNPLResponModel[size];
         }
     };
 

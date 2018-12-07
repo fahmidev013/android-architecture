@@ -1,4 +1,4 @@
-package com.sera.amm.data.githubService;
+package com.sera.amm.services.githubService;
 
 import java.util.List;
 

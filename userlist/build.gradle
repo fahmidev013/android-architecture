@@ -1,0 +1,35 @@
+apply plugin: 'com.android.library'
+
+android {
+  def globalConfig = rootProject.ext
+
+  compileSdkVersion globalConfig.androidCompileSdkVersion
+  buildToolsVersion globalConfig.androidBuildToolVersion
+
+  defaultConfig {
+    minSdkVersion globalConfig.androidMinSdkVersion
+    targetSdkVersion globalConfig.androidTargetSdkVersion
+    versionCode 1
+    versionName "1.0"
+  }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+  def libs = rootProject.ext.libraries
+
+  implementation libs.gson
+  implementation libs.retrofit
+  implementation libs.retrofitGsonConverter
+  implementation libs.rxJavaAdapter
+
+  implementation libs.rxJava
+  implementation libs.rxAndroid
+  implementation libs.supportAppCompat
+  implementation libs.data
+
+  testImplementation libs.junit
+}

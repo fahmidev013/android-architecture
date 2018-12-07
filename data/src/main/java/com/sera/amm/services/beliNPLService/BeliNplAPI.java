@@ -1,4 +1,4 @@
-package com.sera.amm.data.rallyService;
+package com.sera.amm.services.beliNPLService;
 
 import java.util.List;
 
@@ -9,7 +9,7 @@ import retrofit2.http.GET;
  * Created by Fahmi Hakim on 05/12/2018.
  * for SERA
  */
-public interface RallyAPI {
+public interface BeliNplAPI {
     @GET("/api/music_albums")
-    Observable<List<RallyResponModel>> getData();
+    Observable<List<BeliNPLResponModel>> getData();
 }
