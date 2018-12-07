@@ -5,7 +5,7 @@ android {
 
   compileSdkVersion globalConfig.androidCompileSdkVersion
   buildToolsVersion globalConfig.androidBuildToolVersion
-
+  dataBinding.enabled = true
   defaultConfig {
     minSdkVersion globalConfig.androidMinSdkVersion
     targetSdkVersion globalConfig.androidTargetSdkVersion

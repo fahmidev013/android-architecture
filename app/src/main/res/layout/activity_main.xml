@@ -10,7 +10,7 @@
 
     <variable
         name="rally"
-        type="com.sera.androidarchitecture.model.RallyModel" />
+        type="com.sera.amm.data.rallyService.RallyResponModel" />
   </data>
 
 
@@ -26,7 +26,6 @@
     tools:context=".pages.MainActivity">
 
   <TextView
-      android:id="@+id/tv_main_content"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:text='@{rally.title}'/>

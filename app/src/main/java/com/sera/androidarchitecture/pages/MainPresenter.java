@@ -1,10 +1,13 @@
 package com.sera.androidarchitecture.pages;
 
+import android.app.Activity;
+import android.content.Context;
 import android.os.Handler;
 
-import com.sera.amm.data.response.RallyResponModel;
+import com.sera.amm.data.rallyService.RallyService;
+import com.sera.amm.data.rallyService.RallyResponModel;
 import com.sera.amm.mvp.BasePresenter;
-import com.sera.amm.userlist.RallyService;
+import com.sera.androidarchitecture.R;
 
 import java.util.List;
 
@@ -47,6 +50,7 @@ public class MainPresenter extends BasePresenter<MainView>{
 
                             @Override
                             public void onError(Throwable e) {
+                                getView().showErrorMessagefromResources(R.string.error_message_getDataFailed, null);
                                 getView().showLoading(false);
                             }
 

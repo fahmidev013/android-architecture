@@ -72,9 +72,8 @@ public abstract class CoreActivity<T extends BasePresenter, V extends MvpView> e
         super.onCreate(savedInstanceState);
         //setContentView(getLayoutResId());
 //        EventBus.getDefault().register(this);
-        /*setStatusBar();
         getIntentData();
-        OtherSetting();*/
+        OtherSetting();
     }
 
     @Override
@@ -143,6 +142,16 @@ public abstract class CoreActivity<T extends BasePresenter, V extends MvpView> e
     }
 
     @Override
+    public String getStringFromResources(int resourceStringName) {
+        return getResources().getString(resourceStringName);
+    }
+
+    @Override
+    public void showErrorMessagefromResources(int resourceStringName, @Nullable String additionalMessage) {
+        Toast.makeText(this, getResources().getString(resourceStringName) + "  " + (additionalMessage == null ? "" : additionalMessage), Toast.LENGTH_LONG).show();
+    }
+
+    @Override
     protected void onDestroy() {
         super.onDestroy();
 //        EventBus.getDefault().unregister(this);
@@ -154,7 +163,5 @@ public abstract class CoreActivity<T extends BasePresenter, V extends MvpView> e
     public void receiverConnectionState(Events.ConnectionEvent event) {
         isConnection = event.isConnection();
     }*/
-
-
 
 }

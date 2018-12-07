@@ -7,9 +7,9 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import com.sera.amm.common.dagger.ActivityScope;
-import com.sera.amm.data.GithubService;
-import com.sera.amm.data.RallyAPI;
-import com.sera.amm.userlist.RallyService;
+import com.sera.amm.data.githubService.GithubService;
+import com.sera.amm.data.rallyService.RallyAPI;
+import com.sera.amm.data.rallyService.RallyService;
 
 
 import java.util.concurrent.TimeUnit;
@@ -82,22 +82,5 @@ public class DataModule {
     return retrofit.create(serviceClass);
   }
 
-  @Provides
-  @ActivityScope
-  DummyString provideDummyString() {
-    return new DummyString("Calling from DATAMODULE");
-  }
-
-  public class DummyString {
-
-    String msg;
-    public DummyString(String pesan) {
-      this.msg = pesan;
-    }
-
-    public String getMsg() {
-      return msg;
-    }
-  }
 
 }

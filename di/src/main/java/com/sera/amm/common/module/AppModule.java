@@ -26,10 +26,5 @@ public class AppModule {
         return this.app;
     }
 
-    /*@Provides
-    @ApplicationScope
-    String provideStringApp() {
-        return "Inject berhasil dari Module Common Application";
-    }*/
 
 }

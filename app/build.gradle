@@ -69,7 +69,7 @@ dependencies {
     implementation libs.di
     implementation libs.mvp
     implementation libs.data
-    implementation libs.userList
+
 
     implementation 'org.jetbrains:annotations:15.0'
 

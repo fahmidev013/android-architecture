@@ -22,7 +22,7 @@ dependencies {
 
   implementation libs.supportAppCompat
 
-  implementation libs.userList
+
   implementation libs.data
   implementation libs.retrofit
   implementation libs.gson

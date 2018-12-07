@@ -1,7 +1,7 @@
 package com.sera.androidarchitecture.pages.home;
 
+import com.sera.amm.data.rallyService.RallyService;
 import com.sera.amm.mvp.BasePresenter;
-import com.sera.amm.userlist.RallyService;
 
 import javax.inject.Inject;
 
@@ -16,10 +16,7 @@ public class HomePresenter extends BasePresenter<HomeView> {
 
     @Inject
     HomePresenter(RallyService service) {
-
         this.rallyService = service;
-//        mView.showLoading(true);
-
     }
 
 
@@ -28,17 +25,4 @@ public class HomePresenter extends BasePresenter<HomeView> {
         return null;
     }
 
-    /*public void setUserMsg(String berubah) {
-        new android.os.Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                rallyService.setMsg(berubah);
-                mView.showToast(rallyService.getMsg());
-                mView.showLoading(false);
-                mView.finishActivity();
-            }
-        }, 5000);
-
-
-    }*/
 }

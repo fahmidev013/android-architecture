@@ -1,17 +1,15 @@
 package com.sera.androidarchitecture.pages;
 
-import android.app.Activity;
 import android.content.Intent;
 
 
 import android.os.Bundle;
 
 
-import com.sera.amm.data.response.RallyResponModel;
+import com.sera.amm.data.rallyService.RallyResponModel;
 import com.sera.androidarchitecture.R;
 import com.sera.androidarchitecture.base.CoreActivity;
 import com.sera.androidarchitecture.databinding.ActivityMainBinding;
-import com.sera.androidarchitecture.model.RallyModel;
 import com.sera.androidarchitecture.pages.home.HomeActivity;
 
 
@@ -29,10 +27,7 @@ public class MainActivity extends CoreActivity<MainPresenter, MainView> implemen
   @Inject
   MainPresenter presenter;
 
-
-
-//  private ActivityMainBinding binding;
-  private RallyModel rallyResponModel = new RallyModel("Awallllllllllll");
+  private RallyResponModel rallyResponModel = new RallyResponModel("Initialized Title");
 
 
   @Override protected void onCreate(Bundle savedInstanceState) {
@@ -93,5 +88,8 @@ public class MainActivity extends CoreActivity<MainPresenter, MainView> implemen
       j.add(data.get(i).getTitle());
     }
     rallyResponModel.setTitle(j.get(j.size() - 1));
+    showToast(rallyResponModel.getTitle());
   }
+
+
 }

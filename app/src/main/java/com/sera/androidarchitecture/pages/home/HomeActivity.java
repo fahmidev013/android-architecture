@@ -3,8 +3,11 @@ package com.sera.androidarchitecture.pages.home;
 import android.os.Bundle;
 
 
+import com.sera.amm.data.rallyService.RallyService;
 import com.sera.androidarchitecture.R;
 import com.sera.androidarchitecture.base.CoreActivity;
+
+import javax.inject.Inject;
 
 import androidx.annotation.Nullable;
 
@@ -14,16 +17,13 @@ import androidx.annotation.Nullable;
  */
 public class HomeActivity extends CoreActivity<HomePresenter, HomeView> implements HomeView{
 
-    /*@Inject
-    RallyService rallyService;*/
+    @Inject
+    RallyService rallyService;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_main);
-        /*createPresenter(new HomePresenter(this, rallyService));
-        getPresenter().setUserMsg("Berubah");*/
     }
 
     @Override

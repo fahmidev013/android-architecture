@@ -17,7 +17,6 @@ public interface AppComponent {
     //-------- PROVIDE
     Application provideApp();
 
-    /*String provideStringApp();*/
 
     void inject(Application app);
 }

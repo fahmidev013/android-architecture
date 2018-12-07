@@ -1,10 +1,6 @@
-package com.sera.amm.userlist;
+package com.sera.amm.data.rallyService;
 
 import android.app.Activity;
-
-
-import com.sera.amm.data.RallyAPI;
-import com.sera.amm.data.response.RallyResponModel;
 
 import java.util.List;
 

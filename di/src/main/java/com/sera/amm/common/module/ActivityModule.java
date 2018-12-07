@@ -26,11 +26,5 @@ public class ActivityModule {
         return this.activity;
     }
 
-    @Provides
-    @ActivityScope
-    String provideStringApp() {
-        return "Inject berhasil dari Module Common Activity";
-    }
-
 
 }

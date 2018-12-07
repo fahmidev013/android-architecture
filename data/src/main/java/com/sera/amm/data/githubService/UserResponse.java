@@ -1,4 +1,4 @@
-package com.sera.amm.data.response;
+package com.sera.amm.data.githubService;
 
 import android.os.Parcel;
 import android.os.Parcelable;

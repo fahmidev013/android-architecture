@@ -1,6 +1,4 @@
-package com.sera.amm.data;
-
-import com.sera.amm.data.response.UserResponse;
+package com.sera.amm.data.githubService;
 
 import java.util.List;
 
